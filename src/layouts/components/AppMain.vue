@@ -34,6 +34,9 @@ const settingsStore = useSettingsStore()
 .app-main {
   width: 100%;
   display: flex;
+  background-image: url("@/assets/images/home_background_img.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .app-scrollbar {

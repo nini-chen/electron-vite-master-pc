@@ -1,33 +1,12 @@
 <script lang="ts" setup>
+import { ref } from "vue"
 import { useRouter } from "vue-router"
-import { storeToRefs } from "pinia"
-import { useAppStore } from "@/store/modules/app"
-import { useSettingsStore } from "@/store/modules/settings"
 import { useUserStore } from "@/store/modules/user"
-import { UserFilled } from "@element-plus/icons-vue"
-import Hamburger from "../Hamburger/index.vue"
-import Breadcrumb from "../Breadcrumb/index.vue"
-import Sidebar from "../Sidebar/index.vue"
-import Notify from "@/components/Notify/index.vue"
-import ThemeSwitch from "@/components/ThemeSwitch/index.vue"
-import Screenfull from "@/components/Screenfull/index.vue"
-import SearchMenu from "@/components/SearchMenu/index.vue"
-import { useDevice } from "@/hooks/useDevice"
-import { useLayoutMode } from "@/hooks/useLayoutMode"
-
-const { isMobile } = useDevice()
-const { isTop } = useLayoutMode()
+import { UserFilled, Search } from "@element-plus/icons-vue"
 const router = useRouter()
-const appStore = useAppStore()
 const userStore = useUserStore()
-const settingsStore = useSettingsStore()
-const { showNotify, showThemeSwitch, showScreenfull, showSearchMenu } = storeToRefs(settingsStore)
 
-/** 切换侧边栏 */
-const toggleSidebar = () => {
-  appStore.toggleSidebar(false)
-}
-
+const input1 = ref("")
 /** 登出 */
 const logout = () => {
   userStore.logout()
@@ -37,19 +16,19 @@ const logout = () => {
 
 <template>
   <div class="navigation-bar">
-    <Hamburger
-      v-if="!isTop || isMobile"
-      :is-active="appStore.sidebar.opened"
-      class="hamburger"
-      @toggle-click="toggleSidebar"
-    />
-    <Breadcrumb v-if="!isTop || isMobile" class="breadcrumb" />
-    <Sidebar v-if="isTop && !isMobile" class="sidebar" />
+    <div class="my-20px mx-20px">
+      <div class="icon-title"><img src="@/assets/images/login_ITC.png" /><span>营销乾坤袋</span></div>
+    </div>
+    <div class="w-60% mt-20px">
+      <el-input
+        v-model="input1"
+        style="width: 100%"
+        size="large"
+        placeholder="输入文件标题/团队空间文件上传人"
+        :prefix-icon="Search"
+      />
+    </div>
     <div class="right-menu">
-      <SearchMenu v-if="showSearchMenu" class="right-menu-item" />
-      <Screenfull v-if="showScreenfull" class="right-menu-item" />
-      <ThemeSwitch v-if="showThemeSwitch" class="right-menu-item" />
-      <Notify v-if="showNotify" class="right-menu-item" />
       <el-dropdown class="right-menu-item">
         <div class="right-menu-avatar">
           <el-avatar :icon="UserFilled" :size="30" />
@@ -57,29 +36,54 @@ const logout = () => {
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <a target="_blank" href="https://github.com/un-pany/v3-admin-vite">
-              <el-dropdown-item>GitHub</el-dropdown-item>
-            </a>
-            <a target="_blank" href="https://gitee.com/un-pany/v3-admin-vite">
-              <el-dropdown-item>Gitee</el-dropdown-item>
-            </a>
-            <el-dropdown-item divided @click="logout">
+            <div class="right-menu-item-li">
+              <el-dropdown-item
+                ><el-icon><ChatLineSquare /></el-icon>消息通知</el-dropdown-item
+              >
+            </div>
+            <div>
+              <el-dropdown-item
+                ><el-icon><View /></el-icon>意见反馈</el-dropdown-item
+              >
+            </div>
+            <div>
+              <el-dropdown-item
+                ><el-icon><Download /></el-icon>下载内容</el-dropdown-item
+              >
+            </div>
+            <div>
+              <el-dropdown-item
+                ><el-icon><User /></el-icon>个人中心</el-dropdown-item
+              >
+            </div>
+            <div>
+              <el-dropdown-item
+                ><el-icon><Warning /></el-icon>关于平台</el-dropdown-item
+              >
+            </div>
+            <!-- <el-dropdown-item divided @click="logout">
               <span style="display: block">退出登录</span>
-            </el-dropdown-item>
+            </el-dropdown-item> -->
           </el-dropdown-menu>
         </template>
       </el-dropdown>
+      <Share class="right_icon" />
+      <Refresh class="right_icon" />
+      <SemiSelect class="right_icon" />
+      <CloseBold class="right_icon" @click="logout" />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .navigation-bar {
-  height: var(--v3-navigationbar-height);
+  height: 100px;
   overflow: hidden;
-  color: var(--v3-navigationbar-text-color);
   display: flex;
   justify-content: space-between;
+  background-image: url("@/assets/images/head.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   .hamburger {
     display: flex;
     align-items: center;
@@ -87,12 +91,26 @@ const logout = () => {
     padding: 0 15px;
     cursor: pointer;
   }
+  .icon-title {
+    display: flex;
+    img {
+      width: 62px;
+      height: 40px;
+    }
+    span {
+      font-weight: bold;
+      font-size: 26px;
+      color: #333333;
+      line-height: 35px;
+      margin-left: 10px;
+    }
+  }
   .breadcrumb {
     flex: 1;
-    // 参考 Bootstrap 的响应式设计将宽度设置为 576
-    @media screen and (max-width: 576px) {
-      display: none;
-    }
+    // // 参考 Bootstrap 的响应式设计将宽度设置为 576
+    // @media screen and (max-width: 576px) {
+    //   display: none;
+    // }
   }
   .sidebar {
     flex: 1;
@@ -127,7 +145,22 @@ const logout = () => {
           font-size: 16px;
         }
       }
+      .right-menu-item-li {
+        display: flex;
+        align-items: center;
+        .el-icon {
+          margin-right: 10px;
+          width: 1rem;
+          height: 1rem;
+        }
+      }
     }
+  }
+  .right_icon {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 8px;
+    color: #999999;
   }
 }
 </style>

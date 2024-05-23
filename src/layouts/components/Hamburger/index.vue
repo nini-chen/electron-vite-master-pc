@@ -1,30 +1,30 @@
 <script lang="ts" setup>
-import { Expand, Fold } from "@element-plus/icons-vue"
+// import { Expand, Fold } from "@element-plus/icons-vue"
 
-interface Props {
-  isActive?: boolean
-}
+// interface Props {
+//   isActive?: boolean
+// }
 
-const props = withDefaults(defineProps<Props>(), {
-  isActive: false
-})
+// const props = withDefaults(defineProps<Props>(), {
+//   isActive: false
+// })
 
 /** Vue 3.3+ defineEmits 语法 */
-const emit = defineEmits<{
-  toggleClick: []
-}>()
+// const emit = defineEmits<{
+//   toggleClick: []
+// }>()
 
-const toggleClick = () => {
-  emit("toggleClick")
-}
+// const toggleClick = () => {
+//   emit("toggleClick")
+// }
 </script>
 
 <template>
   <div @click="toggleClick">
-    <el-icon :size="20" class="icon">
+    <!-- <el-icon :size="20" class="icon">
       <Fold v-if="props.isActive" />
       <Expand v-else />
-    </el-icon>
+    </el-icon> -->
   </div>
 </template>
 

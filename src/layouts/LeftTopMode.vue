@@ -3,7 +3,7 @@ import { computed } from "vue"
 import { storeToRefs } from "pinia"
 import { useAppStore } from "@/store/modules/app"
 import { useSettingsStore } from "@/store/modules/settings"
-import { AppMain, NavigationBar, Sidebar, TagsView, Logo } from "./components"
+import { AppMain, NavigationBar, TagsView, Logo } from "./components"
 
 const appStore = useAppStore()
 const settingsStore = useSettingsStore()
@@ -30,7 +30,7 @@ const layoutClasses = computed(() => {
     <!-- 主容器 -->
     <div :class="{ hasTagsView: showTagsView }" class="main-container">
       <!-- 左侧边栏 -->
-      <Sidebar class="sidebar-container" />
+      <!-- <Sidebar class="sidebar-container" /> -->
       <!-- 页面主体内容 -->
       <AppMain class="app-main" />
     </div>

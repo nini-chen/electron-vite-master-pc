@@ -10,7 +10,7 @@
   --v3-header-box-shadow: var(--el-box-shadow-lighter);
   --v3-header-border-bottom: 1px solid var(--el-fill-color);
   /** NavigationBar 组件 */
-  --v3-navigationbar-height: 50px;
+  --v3-navigationbar-height: 100px;
   --v3-navigationbar-text-color: var(--el-text-color-regular);
   /** Sidebar 组件（左侧模式全部生效、顶部模式全部不生效、混合模式非颜色部分生效） */
   --v3-sidebar-width: 220px;

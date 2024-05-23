@@ -1,9 +1,7 @@
-<script lang="ts" setup>
-import { APP_TITLE } from "@/hooks/useTitle"
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <footer class="layout-footer">MIT © 2021-PRESENT {{ APP_TITLE }}</footer>
+  <footer class="layout-footer">广东保伦电子股份有限公司</footer>
 </template>
 
 <style lang="scss" scoped>

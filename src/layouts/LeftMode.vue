@@ -3,7 +3,7 @@ import { computed } from "vue"
 import { storeToRefs } from "pinia"
 import { useAppStore } from "@/store/modules/app"
 import { useSettingsStore } from "@/store/modules/settings"
-import { AppMain, NavigationBar, Sidebar, TagsView } from "./components"
+import { AppMain, NavigationBar, TagsView } from "./components"
 import { useDevice } from "@/hooks/useDevice"
 
 const { isMobile } = useDevice()
@@ -32,7 +32,7 @@ const handleClickOutside = () => {
     <!-- mobile 端侧边栏遮罩层 -->
     <div v-if="layoutClasses.mobile && layoutClasses.openSidebar" class="drawer-bg" @click="handleClickOutside" />
     <!-- 左侧边栏 -->
-    <Sidebar class="sidebar-container" v-if="false" />
+    <!-- <Sidebar class="sidebar-container" v-if="false" /> -->
     <!-- 主容器 -->
     <div :class="{ hasTagsView: showTagsView }" class="main-container">
       <!-- 头部导航栏和标签栏 -->
@@ -82,18 +82,18 @@ $transition-time: 0.35s;
 .main-container {
   min-height: 100%;
   transition: margin-left $transition-time;
-  margin-left: var(--v3-sidebar-width);
+  // margin-left: var(--v3-sidebar-width);
   position: relative;
 }
 
 .fixed-header {
   position: fixed !important;
   top: 0;
-  right: 0;
+  left: 0;
   z-index: 9;
   // width: calc(100% - var(--v3-sidebar-width));
   width: 100%;
-  transition: width $transition-time;
+  // transition: width $transition-time;
 }
 
 .layout-header {
@@ -111,7 +111,7 @@ $transition-time: 0.35s;
 }
 
 .fixed-header + .app-main {
-  padding-top: var(--v3-navigationbar-height);
+  padding-top: 100px;
   height: 100vh;
   overflow: auto;
 }
@@ -121,7 +121,7 @@ $transition-time: 0.35s;
     min-height: calc(100vh - var(--v3-header-height));
   }
   .fixed-header + .app-main {
-    padding-top: var(--v3-header-height);
+    padding-top: 100px;
   }
 }
 
@@ -130,10 +130,10 @@ $transition-time: 0.35s;
     width: var(--v3-sidebar-hide-width) !important;
   }
   .main-container {
-    margin-left: var(--v3-sidebar-hide-width);
+    // margin-left: var(--v3-sidebar-hide-width);
   }
   .fixed-header {
-    width: calc(100% - var(--v3-sidebar-hide-width));
+    width: 100%;
   }
 }
 
