@@ -1,27 +1,29 @@
 <script setup>
-import { useTagsViewStore } from "@/store/modules/tags-view"
+// import { useTagsViewStore } from "@/store/modules/tags-view"
 import { useSettingsStore } from "@/store/modules/settings"
 import Footer from "./Footer/index.vue"
 
-const tagsViewStore = useTagsViewStore()
+// const tagsViewStore = useTagsViewStore()
 const settingsStore = useSettingsStore()
-function aa(val, val2) {
-  console.log(val, val2)
-}
 </script>
 
 <template>
   <section class="app-main">
     <div class="app-scrollbar">
       <!-- key 采用 route.path 和 route.fullPath 有着不同的效果，大多数时候 path 更通用 -->
-      <router-view v-slot="{ Component, route }">
-        {{ aa(Component, route) }}
+      <!-- <router-view v-slot="{ Component, route }">
         <transition name="el-fade-in" mode="out-in">
           <keep-alive :include="tagsViewStore.cachedViews">
             <component :is="Component" :key="route.path" class="app-container-grow" />
           </keep-alive>
         </transition>
+      </router-view> -->
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
       </router-view>
+
       <!-- 页脚 -->
       <Footer v-if="settingsStore.showFooter" />
     </div>

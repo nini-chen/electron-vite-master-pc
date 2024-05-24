@@ -45,10 +45,10 @@
 </template>
 
 <script setup>
-import TreeMenu from "./components/tree-menu.vue"
-import PDF from "./components/pdf.vue"
-import Excel from "./components/excel.vue"
-import Docx from "./components/docx.vue"
+import TreeMenu from "./tree-menu.vue"
+import PDF from "./pdf.vue"
+import Excel from "./excel.vue"
+import Docx from "./docx.vue"
 import { ref } from "vue"
 const fileType = ref("")
 function handleClick(type) {

@@ -11,6 +11,15 @@ dependencies:
   '@element-plus/icons-vue':
     specifier: 2.3.1
     version: 2.3.1(vue@3.4.27)
+  '@vue-office/docx':
+    specifier: ^1.6.2
+    version: 1.6.2(vue-demi@0.14.7)(vue@3.4.27)
+  '@vue-office/excel':
+    specifier: ^1.7.8
+    version: 1.7.8(vue-demi@0.14.7)(vue@3.4.27)
+  '@vue-office/pdf':
+    specifier: ^2.0.2
+    version: 2.0.2(vue-demi@0.14.7)(vue@3.4.27)
   axios:
     specifier: 1.6.8
     version: 1.6.8
@@ -1639,6 +1648,51 @@ packages:
       '@volar/language-core': 2.2.4
       path-browserify: 1.0.1
     dev: true
+
+  /@vue-office/docx@1.6.2(vue-demi@0.14.7)(vue@3.4.27):
+    resolution: {integrity: sha512-OHAoUHeY8nHjhWvwDhlPx+/rmRkxmqLpvPgtfCEOZ4H1c1LCdJ6eDbdV3152ww8dcdZ7fgGQu3fmSSaI7JwdpQ==}
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.7.1
+      vue: ^2.0.0 || >=3.0.0
+      vue-demi: ^0.14.6
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.4.27(typescript@5.4.5)
+      vue-demi: 0.14.7(vue@3.4.27)
+    dev: false
+
+  /@vue-office/excel@1.7.8(vue-demi@0.14.7)(vue@3.4.27):
+    resolution: {integrity: sha512-pQxogMRDECFElpDcZhQBDtM9GpL8d1/w+fjAXiqJRTIjzbrW/JiOURExgE5LoUkfc+cDhUfSGtfvCvwSx30yQw==}
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.7.1
+      vue: ^2.0.0 || >=3.0.0
+      vue-demi: ^0.14.6
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.4.27(typescript@5.4.5)
+      vue-demi: 0.14.7(vue@3.4.27)
+    dev: false
+
+  /@vue-office/pdf@2.0.2(vue-demi@0.14.7)(vue@3.4.27):
+    resolution: {integrity: sha512-bQFqGxSOnKbvCS7OoJniYoTz1VIm1XOrRD27Msorxny9NFJ8RsQK1A4uhlnISJRFMaUwp1qlcVE9jMAhsiIyjg==}
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.7.1
+      vue: ^2.0.0 || >=3.0.0
+      vue-demi: ^0.14.6
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.4.27(typescript@5.4.5)
+      vue-demi: 0.14.7(vue@3.4.27)
+    dev: false
 
   /@vue/babel-helper-vue-transform-on@1.2.2:
     resolution: {integrity: sha512-nOttamHUR3YzdEqdM/XXDyCSdxMA9VizUKoroLX6yTyRtggzQMHXcmwh8a7ZErcJttIBIc9s68a1B8GZ+Dmvsw==}
