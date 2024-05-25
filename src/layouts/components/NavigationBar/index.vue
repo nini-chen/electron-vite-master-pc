@@ -16,10 +16,13 @@ const logout = () => {
 
 <template>
   <div class="navigation-bar">
-    <div class="my-20px mx-20px">
-      <div class="icon-title"><img src="@/assets/images/login_ITC.png" /><span>营销乾坤袋</span></div>
+    <div class="my-20px mx-10px flex">
+      <el-button type="primary" @click="$router.go(-1)" class="my-20px" style="margin-right: 20px"
+        >返回上一页</el-button
+      >
+      <div class="icon-title mt-15px"><img src="@/assets/images/login_ITC.png" /><span>营销乾坤袋</span></div>
     </div>
-    <div class="w-60% mt-20px">
+    <div class="w-60% mt-35px">
       <el-input
         v-model="input1"
         style="width: 100%"

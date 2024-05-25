@@ -9,7 +9,7 @@
     <div class="flex">
       <TreeMenu />
       <div class="content">
-        <div class="card_box" @click="handleClick('docx')">
+        <div class="card_box" @click="$router.push('/docxfile')">
           <div>
             <img src="@/assets/images/word_1.png" alt="" />
           </div>
@@ -18,7 +18,7 @@
             <div class="author">上传者：张某某</div>
           </div>
         </div>
-        <div class="card_box" @click="handleClick('excel')">
+        <div class="card_box" @click="$router.push('/excelfile')">
           <div>
             <img src="@/assets/images/Excel_1.png" alt="" />
           </div>
@@ -27,7 +27,7 @@
             <div class="author">上传者：张某某</div>
           </div>
         </div>
-        <div class="card_box" @click="handleClick('pdf')">
+        <div class="card_box" @click="$router.push('/pdffile')">
           <div>
             <img src="@/assets/images/ppt_1.png" alt="" />
           </div>
@@ -39,22 +39,10 @@
       </div>
     </div>
   </div>
-  <PDF v-if="fileType === 'pdf'" />
-  <Excel v-if="fileType === 'excel'" />
-  <Docx v-if="fileType === 'docx'" />
 </template>
 
 <script setup>
 import TreeMenu from "./components/tree-menu.vue"
-import PDF from "./components/pdf.vue"
-import Excel from "./components/excel.vue"
-import Docx from "./components/docx.vue"
-import { ref } from "vue"
-const fileType = ref("")
-function handleClick(type) {
-  fileType.value = type
-  console.log("click")
-}
 </script>
 
 <style scoped lang="scss">

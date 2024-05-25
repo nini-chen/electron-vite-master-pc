@@ -78,17 +78,46 @@ export const constantRoutes: RouteRecordRaw[] = [
   },
   // 其他
   {
-    path: "/unocss",
+    path: "/pdffile",
     component: Layouts,
-    redirect: "/unocss/index",
+    redirect: "/pdffile/index",
     children: [
       {
         path: "index",
-        component: () => import("@/views/unocss/index.vue"),
-        name: "UnoCSS",
+        component: () => import("@/views/pdffile/index.vue"),
+        name: "PDFFile",
         meta: {
-          title: "UnoCSS",
-          svgIcon: "unocss"
+          title: "pdf_file"
+        }
+      }
+    ]
+  },
+  {
+    path: "/docxfile",
+    component: Layouts,
+    redirect: "/docxfile/index",
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/docxfile/index.vue"),
+        name: "DocxFile",
+        meta: {
+          title: "docx_file"
+        }
+      }
+    ]
+  },
+  {
+    path: "/excelfile",
+    component: Layouts,
+    redirect: "/excelfile/index",
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/excelfile/index.vue"),
+        name: "ExcelFile",
+        meta: {
+          title: "excel_file"
         }
       }
     ]
